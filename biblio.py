@@ -138,19 +138,20 @@ def late():
     x.execute("SELECT * FROM loans")
     r = []
     for l in x.fetchall():
-        d = datetime.strptime(l[3], "%Y-%m-%d").date()
-        n = (date.today() - d).days
-        if n > LOAN_DAYS:
-            x2 = c.cursor()
-            x2.execute("SELECT title FROM books WHERE id = ?", (l[1],))
-            t = x2.fetchone()[0]
-            x2.execute("SELECT name FROM members WHERE id = ?", (l[2],))
-            m = x2.fetchone()
-            if m is None:
-                m = "?"
-            else:
-                m = m[0]
-            r.append((t, m, n - LOAN_DAYS))
+        if l[4] is None:
+            d = datetime.strptime(l[3], "%Y-%m-%d").date()
+            n = (date.today() - d).days
+            if n > LOAN_DAYS:
+                x2 = c.cursor()
+                x2.execute("SELECT title FROM books WHERE id = ?", (l[1],))
+                t = x2.fetchone()[0]
+                x2.execute("SELECT name FROM members WHERE id = ?", (l[2],))
+                m = x2.fetchone()
+                if m is None:
+                    m = "?"
+                else:
+                    m = m[0]
+                r.append((t, m, n - LOAN_DAYS))
     c.close()
     if len(r) == 0:
         print("Aucun retard.")
