@@ -171,10 +171,10 @@ def main(argv):
     if command == "init":
         init_db()
     elif command == "livres":
-        list_books()
+       list_books()
     elif command == "chercher" and len(argv) >= 3:
-     search_text = " ".join(argv[2:])
-     search_books(search_text)
+       search_text = " ".join(argv[2:])
+       search_books(search_text)
     elif command == "emprunter" and len(argv) == 4:
         borrow_book(int(argv[2]), int(argv[3]))
     elif command == "rendre" and len(argv) == 3:
