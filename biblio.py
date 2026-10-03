@@ -91,16 +91,19 @@ def list_books():
 def search_books(text):
     conn = get_connection()
     cur = conn.cursor()
-    query = "SELECT id, title, author FROM books WHERE title LIKE '%" + text + "%'"
-    cur.execute(query)
+    
+    query = "SELECT id, title, author FROM books WHERE title LIKE ?"
+    pattern = f"%{text}%"
+    
+    cur.execute(query, (pattern,))
     rows = cur.fetchall()
     conn.close()
+    
     if not rows:
-        print("Aucun livre trouve.")
+        print("Aucun livre trouvé.")
     for row in rows:
         print("[%d] %s (%s)" % row)
     return rows
-
 
 def borrow_book(book_id, member_id):
     conn = get_connection()
@@ -169,8 +172,9 @@ def main(argv):
         init_db()
     elif command == "livres":
         list_books()
-    elif command == "chercher" and len(argv) == 3:
-        search_books(argv[2])
+    elif command == "chercher" and len(argv) >= 3:
+     search_text = " ".join(argv[2:])
+     search_books(search_text)
     elif command == "emprunter" and len(argv) == 4:
         borrow_book(int(argv[2]), int(argv[3]))
     elif command == "rendre" and len(argv) == 3:
