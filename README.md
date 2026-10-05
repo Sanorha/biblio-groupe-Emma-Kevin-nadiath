@@ -41,7 +41,6 @@ python biblio.py chercher dune
 output :
 [2] Dune (Frank Herbert)
 ```
-
 <br>
 <br>
 
@@ -56,7 +55,6 @@ python biblio.py emprunter 1 2
 output :
 Emprunt enregistre : livre 1, membre 2.
 ```
-
 <br>
 <br>
 
@@ -75,7 +73,7 @@ Retour enregistre pour le livre 1.
 <br>
 <br>
 
-**Rendre un livre :**
+**Voir les retards de rendu :**
 ```bash
 python biblio.py retards
 ```
