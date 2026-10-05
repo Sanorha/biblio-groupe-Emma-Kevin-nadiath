@@ -1,5 +1,8 @@
-# biblio
-
-gestion bibliotheque
-
-lancer : python biblio.py
+# Biblio
+## Prérequis
+## Installation
+## Utilisation
+## Tests
+## Structure du projet
+## Contribuer
+## Auteurs
