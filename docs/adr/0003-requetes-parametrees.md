@@ -1,17 +1,16 @@
 # ADR 0003 : Requêtes SQL paramétrées obligatoires
 - Statut : proposé 
 - Date : 2026-10-06
-- Décideurs : Sanorha, nadiatynov, emmadarmon3-boop
+- Décideurs : @Sanorha, @nadiatynov, @emmadarmon3-boop
 
 ## Contexte
-La concaténation directe de la saisie utilisateur dans la requête SQL (WHERE title LIKE '%" + text + "%') crée une faille d'injection SQL critique et fait planter l'application à la moindre apostrophe. 
-La sécurisation de l'accès aux données est donc obligatoire.
+La concaténation directe de la saisie utilisateur (WHERE title LIKE '%" + text + "%') crée une faille critique d'injection SQL et fait planter la recherche sur des mots avec apostrophe (ex: L'Étranger). La sécurisation de l'accès aux données est donc obligatoire.
 
 ## Options envisagées
 
-1. Option A: Concaténation de chaînes
-Pour : Intuitive et rapide à écrire au premier abord.
-Contre : Expose le code aux injections SQL (faille critique) et plante sur les caractères spéciaux comme les apostrophes.
+1. Option A: Nettoyage manuel du texte saisi
+Pour : Garde une construction de requête dynamique par concaténation.
+Contre : Solution très faillible (risque d'oubli), complexe à maintenir et casse les recherches contenant des apostrophes légitimes.
 
 2. Option B: Paramètres (?) Requêtes paramétrées
  Pour : Sécurise complètement les requêtes contre les injections SQL et gère automatiquement l'échappement des caractères spéciaux.
