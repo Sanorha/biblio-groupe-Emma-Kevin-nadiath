@@ -2,7 +2,7 @@
 
 - Statut : proposé
 - Date : 2026-10-06
-- Décideurs : @emmadarmon3-boop
+- Décideurs : @emmadarmon3-boop, @nadiatynov, @Sanorha
 
 ## Contexte
 <!-- La situation et la contrainte qui imposent de choisir. -->
