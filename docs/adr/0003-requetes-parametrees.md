@@ -1,7 +1,7 @@
 # ADR 0003 : Requêtes SQL paramétrées obligatoires
 - Statut : proposé 
 - Date : 2026-10-06
-- Décideurs : Kévin, Emma, Nadiath
+- Décideurs : Sanorha, nadiatynov, emmadarmon3-boop
 
 ## Contexte
 La concaténation directe de la saisie utilisateur dans la requête SQL (WHERE title LIKE '%" + text + "%') crée une faille d'injection SQL critique et fait planter l'application à la moindre apostrophe. 
