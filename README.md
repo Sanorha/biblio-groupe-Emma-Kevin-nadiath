@@ -1,5 +1,5 @@
 # Biblio
-Biblio est le gestionnaire de prêts de livres pour une association.
+Biblio est le gestionnaire de prêts de livres d'une association.
 
 ## Prérequis
 
