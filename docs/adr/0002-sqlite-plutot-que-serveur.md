@@ -1,6 +1,6 @@
 # ADR 0002 : sqlite-plutot-que-serveur.md 
 
-- Statut : proposé
+- Statut : validé
 - Date : 2026-10-06
 - Décideurs : Sanorha, nadiatynov, emmadarmon3-boop
 
