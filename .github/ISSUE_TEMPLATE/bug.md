@@ -5,14 +5,14 @@ labels: bug
 ---
 
 ## Contexte
-- Commit : <!-- résultat de git log -1 --oneline -->
-- Système : <!-- Windows 11, macOS 14, Ubuntu 24.04... -->
-- Python : <!-- résultat de python --version -->
+- Commit : c159932
+- Système : Windows 11
+- Python : Python 3.12.3
 
 ## Étapes pour reproduire
 1. python biblio.py init
-2.
-3.
+2. python biblio.py emprunter 1 1
+3. python biblio.py emprunter 1 1
 
 ## Comportement attendu
 
